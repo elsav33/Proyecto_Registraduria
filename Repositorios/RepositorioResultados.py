@@ -28,7 +28,6 @@ class RepositorioResultados(InterfaceRepositorio[Resultados]):
         pipeline = [query1]
         return self.queryAggregation(pipeline)
 
-
     def getMayorVotosxMesa(self):
         query1 = {
             "$group": {
