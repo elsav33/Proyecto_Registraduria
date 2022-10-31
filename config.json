@@ -1,0 +1,6 @@
+{
+  "url-backend": "127.0.0.1",
+  "port": 9997,
+  "bd-url": "mongodb+srv://elsav:MisionTIC2022@cluster0.0dpgjmb.mongodb.net/bd_registro_web?retryWrites=true&w=majority",
+  "bd-name": "bd_registro_web"
+}
