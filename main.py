@@ -179,7 +179,7 @@ def EliminarResultado(id):
     return jsonify(respuesta)
 
 
-# --------------------------------Consultas---------------------------------------
+# --------------------------------Consultas en construcción ---------------------------------------
 
 @app.route("/resultados/mesas/<string:id_candidato>", methods=["GET"])
 def inscritoEnMesas(id_candidato):

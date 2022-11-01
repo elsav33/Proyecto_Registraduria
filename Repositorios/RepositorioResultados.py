@@ -2,7 +2,7 @@ from Repositorios.InterfaceRepositorio import InterfaceRepositorio
 from Modelos.Resultados import Resultados
 from bson import ObjectId
 
-
+# De aquí para abajo en construcción
 class RepositorioResultados(InterfaceRepositorio[Resultados]):
 
     def getListadoMesasCandidatoInscrito(self, id_candidato):
@@ -15,12 +15,11 @@ class RepositorioResultados(InterfaceRepositorio[Resultados]):
         theQuery = {"candidato.$id": ObjectId(id_candidato)}
         return self.query(theQuery)
 
-
     def getListadoResultadosCandidato(self):
         query1 = {
             "$group": {
                 "_id": "$candidato",
-                "total": {
+                "total":{
                     "$sum": "$resultado"
                 }
             }
@@ -31,12 +30,9 @@ class RepositorioResultados(InterfaceRepositorio[Resultados]):
     def getMayorVotosxMesa(self):
         query1 = {
             "$group": {
-                "_id": "$partidos",
-                "max": {
-                    "$max": "$votos"
-                },
-                "doc": {
-                    "$first": "$$ROOT"
+                "_id": "$candidatos",
+                "total": {
+                    "$sum": "$resultado"
                 }
             }
         }

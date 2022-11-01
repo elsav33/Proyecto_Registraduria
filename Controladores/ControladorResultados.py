@@ -1,7 +1,6 @@
 from Modelos.Resultados import Resultados
 from Modelos.Candidatos import Candidatos
 from Modelos.Mesas import Mesas
-# from Modelos.Partidos import Partidos
 from Repositorios.RepositorioResultados import RepositorioResultados
 from Repositorios.RepositorioCandidatos import RepositorioCandidatos
 from Repositorios.RepositorioMesas import RepositorioMesas
@@ -46,7 +45,7 @@ class ControladorResultados:
         print("Eliminando un resultado con id: " + id)
         return self.repositorioResultados.delete(id)
 
-    # --------------------------------Consultas---------------------------------------
+    # --------------------------------Consultas en proceso ---------------------------------------
     """def getListarMesasDeInscritoCandidato(self, id_candidato):
         resultado = self.repositorioResultados.getListadoMesasCandidatoInscrito(id_candidato)
         for posicion in resultado:

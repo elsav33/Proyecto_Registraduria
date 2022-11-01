@@ -35,10 +35,3 @@ class ControladorPartidos():
     def eliminar(self, id):
         print("Eliminando el partido con id: " + id)
         return self.repositorioPartidos.delete(id)
-
-    # Relacion Partido y Mesa
-    """def asignarMesa(self, id, id_mesa):
-        partido = Partidos(self.repositorioPartidos.findById(id))
-        mesaActual = Mesas(self.repositorioMesas.findById(id_mesa))
-        partido.mesa = mesaActual
-        return self.repositorioPartidos.save(partido)"""

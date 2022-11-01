@@ -34,8 +34,6 @@ class ControladorCandidatos():
             candidatoActual.nombre = infoCandidato["nombre"]
         if infoCandidato["apellido"] != "":
             candidatoActual.apellido = infoCandidato["apellido"]
-        # if infoCandidato["id_partido"] != "":
-        #     candidatoActual.id_partido = infoCandidato["id_partido"]
         return self.repositorioCandidatos.update(id, candidatoActual)
 
     def eliminar(self, id):
