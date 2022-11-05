@@ -44,31 +44,3 @@ class ControladorResultados:
     def eliminar(self, id):
         print("Eliminando un resultado con id: " + id)
         return self.repositorioResultados.delete(id)
-
-    # --------------------------------Consultas en proceso ---------------------------------------
-    """def getListarMesasDeInscritoCandidato(self, id_candidato):
-        resultado = self.repositorioResultados.getListadoMesasCandidatoInscrito(id_candidato)
-        for posicion in resultado:
-            posicion = dict(posicion)
-            candidato = dict(posicion["candidato"])
-            partido = candidato["partido"]
-            print(len(partido))"""
-
-    def getListarMesasDeInscritoCandidato(self, id_candidato):
-        resultado = self.repositorioResultados.getListadoMesasCandidatoInscrito(id_candidato)
-        Total = 0
-        for posicion in resultado:
-            posicion = dict(posicion)
-            candidato = dict(posicion["candidato"])
-            partido = candidato["partido"]
-            # print(resultado[0][posicion]["resultado"])
-        return resultado
-
-    def ResultadosCandidato(self):
-        return self.repositorioResultados.getListadoResultadosCandidato()
-
-    def mayorVotosxMesa(self):
-        return self.repositorioResultados.getMayorVotosxMesa()
-
-    def promedioxPartido(self, id_partido):
-        return self.repositorioResultados.getPromedioVotosxPartido(id_partido)

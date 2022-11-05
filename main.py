@@ -179,33 +179,6 @@ def EliminarResultado(id):
     return jsonify(respuesta)
 
 
-# --------------------------------Consultas en construcción ---------------------------------------
-
-@app.route("/resultados/mesas/<string:id_candidato>", methods=["GET"])
-def inscritoEnMesas(id_candidato):
-    json = miControladorResultados.getListarMesasDeInscritoCandidato(id_candidato)
-    return jsonify(json)
-
-
-
-
-@app.route("/resultados/resultadosCandidato", methods=['GET'])
-def resultadosPartidos():
-    respuesta = miControladorResultados.ResultadosCandidato()
-    return jsonify(respuesta)
-
-
-@app.route("/resultados/partidos", methods=['GET'])
-def mayorVotosxMesa():
-    respuesta = miControladorResultados.mayorVotosxMesa()
-    return jsonify(respuesta)
-
-
-@app.route("/resultados/promedio/partidos/<string:id_partido>", methods=['GET'])
-def promedioxPartido(id_partido):
-    respuesta = miControladorResultados.promedioxPartido(id_partido)
-    return jsonify(respuesta)
-
 
 def loadFileConfig():
     with open('config.json') as f:
