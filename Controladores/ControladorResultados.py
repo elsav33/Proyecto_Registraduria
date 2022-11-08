@@ -14,7 +14,7 @@ class ControladorResultados:
         self.repositorioMesas = RepositorioMesas()
 
     def crear(self, infoResultado, id_candidato, id_mesa):
-        print("Crear Resultado")
+        print("Crea Resultado")
         resultado = Resultados(infoResultado)
         candidato = Candidatos(self.repositorioCandidatos.findById(id_candidato))
         mesa = Mesas(self.repositorioMesas.findById(id_mesa))
@@ -32,7 +32,7 @@ class ControladorResultados:
         return self.repositorioResultados.findAll()
 
     def actualizar(self, id, infoResultado, id_candidato, id_mesa):
-        print("Actualizando un resultado con id: " + id)
+        print("Actualiza resultado con id: " + id)
         resultadoActual = Resultados(self.repositorioResultados.findById(id))
         resultadoActual.resultado = infoResultado["resultado"]
         candidato = Candidatos(self.repositorioCandidatos.findById(id_candidato))
@@ -42,5 +42,6 @@ class ControladorResultados:
         return self.repositorioResultados.save(resultadoActual)
 
     def eliminar(self, id):
-        print("Eliminando un resultado con id: " + id)
+        print("Elimina resultado con id: " + id)
         return self.repositorioResultados.delete(id)
+

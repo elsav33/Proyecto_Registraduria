@@ -28,8 +28,8 @@ class ControladorCandidatos():
         candidatoActual = Candidatos(self.repositorioCandidatos.findById(id))
         if infoCandidato["cedula"] != "":
             candidatoActual.cedula = infoCandidato["cedula"]
-        if infoCandidato["numero_resolucion"] != "":
-            candidatoActual.numero_resolucion = infoCandidato["numero_resolucion"]
+        if infoCandidato["numero"] != "":
+            candidatoActual.numero = infoCandidato["numero"]
         if infoCandidato["nombre"] != "":
             candidatoActual.nombre = infoCandidato["nombre"]
         if infoCandidato["apellido"] != "":

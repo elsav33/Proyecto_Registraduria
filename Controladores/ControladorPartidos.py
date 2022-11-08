@@ -27,7 +27,6 @@ class ControladorPartidos():
     def actualizar(self, id, infoPartido):
         print("Actualizando el partido con id: " + id)
         partidoActual = Partidos(self.repositorioPartidos.findById(id))
-        partidoActual.id = infoPartido["_id"]
         partidoActual.nombre = infoPartido["nombre"]
         partidoActual.lema = infoPartido["lema"]
         return self.repositorioPartidos.update(id, partidoActual)

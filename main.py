@@ -29,13 +29,11 @@ miControladorMesas = ControladorMesas()
 miControladorCandidatos = ControladorCandidatos()
 miControladorResultados = ControladorResultados()
 
-
 @app.route("/", methods=['GET'])
 def test():
     json = {}
     json['mensaje'] = "Servidor corriendo correctamente..."
     return jsonify(json)
-
 
 # Aquí los partidos
 
@@ -45,18 +43,15 @@ def CrearPartido():
     respuesta = miControladorPartidos.crear(datos)
     return jsonify(respuesta)
 
-
 @app.route("/partidos", methods=['GET'])
 def MostrarPartidos():
     respuesta = miControladorPartidos.consultarPartidos()
     return jsonify(respuesta)
 
-
 @app.route("/partidos/<string:id>", methods=['GET'])
 def MostrarPartido(id):
     respuesta = miControladorPartidos.consultaPartido(id)
     return jsonify(respuesta)
-
 
 @app.route("/partidos/<string:id>", methods=['PUT'])
 def ActualizarPartido(id):
@@ -64,12 +59,10 @@ def ActualizarPartido(id):
     respuesta = miControladorPartidos.actualizar(id, datos)
     return jsonify(respuesta)
 
-
 @app.route("/partidos/<string:id>", methods=['DELETE'])
 def EliminarPartido(id):
     respuesta = miControladorPartidos.eliminar(id)
     return jsonify(respuesta)
-
 
 # Aquí las mesas
 
@@ -79,18 +72,15 @@ def CrearMesa():
     respuesta = miControladorMesas.crear(datos)
     return jsonify(respuesta)
 
-
 @app.route("/mesas", methods=['GET'])
 def MostrarMesas():
     respuesta = miControladorMesas.consultarMesas()
     return jsonify(respuesta)
 
-
 @app.route("/mesas/<string:id>", methods=['GET'])
 def MostrarMesa(id):
     respuesta = miControladorMesas.consultaMesa(id)
     return jsonify(respuesta)
-
 
 @app.route("/mesas/<string:id>", methods=['PUT'])
 def ActualizarMesa(id):
@@ -98,12 +88,10 @@ def ActualizarMesa(id):
     respuesta = miControladorMesas.actualizar(id, datos)
     return jsonify(respuesta)
 
-
 @app.route("/mesas/<string:id>", methods=['DELETE'])
 def EliminarMesa(id):
     respuesta = miControladorMesas.eliminar(id)
     return jsonify(respuesta)
-
 
 # Aquí los Candidatos
 
@@ -113,18 +101,15 @@ def CrearCandidato():
     respuesta = miControladorCandidatos.crear(datos)
     return jsonify(respuesta)
 
-
 @app.route("/candidatos", methods=['GET'])
 def MostrarCandidatos():
     respuesta = miControladorCandidatos.consultarCandidatos()
     return jsonify(respuesta)
 
-
 @app.route("/candidatos/<string:id>", methods=['GET'])
 def MostrarCandidato(id):
     respuesta = miControladorCandidatos.consultaCandidato(id)
     return jsonify(respuesta)
-
 
 @app.route("/candidatos/<string:id>", methods=['PUT'])
 def ActualizarCandidato(id):
@@ -132,18 +117,15 @@ def ActualizarCandidato(id):
     respuesta = miControladorCandidatos.actualizar(id, datos)
     return jsonify(respuesta)
 
-
 @app.route("/candidatos/<string:id>", methods=['DELETE'])
 def EliminarCandidato(id):
     respuesta = miControladorCandidatos.eliminar(id)
     return jsonify(respuesta)
 
-
 @app.route("/candidatos/<string:id>/partidos/<string:id_partido>", methods=['PUT'])
 def asignaPartido(id, id_partido):
     respuesta = miControladorCandidatos.asignaPartido(id, id_partido)
     return jsonify(respuesta)
-
 
 # Aquí los Resultados
 
@@ -153,18 +135,15 @@ def CrearResultado(id_candidato, id_mesa):
     respuesta = miControladorResultados.crear(datos, id_candidato, id_mesa)
     return jsonify(respuesta)
 
-
 @app.route("/resultados", methods=['GET'])
 def MostrarResultados():
     respuesta = miControladorResultados.consultarResultados()
     return jsonify(respuesta)
 
-
 @app.route("/resultados/<string:id>", methods=['GET'])
 def MostrarResultado(id):
     respuesta = miControladorResultados.consultaResultado(id)
     return jsonify(respuesta)
-
 
 @app.route("/resultados/<string:id>/candidatos/<string:id_candidato>/mesas/<string:id_mesa>", methods=['PUT'])
 def ActualizarResultado(id, id_candidato, id_mesa):
@@ -172,13 +151,10 @@ def ActualizarResultado(id, id_candidato, id_mesa):
     respuesta = miControladorResultados.actualizar(id, datos, id_candidato, id_mesa)
     return jsonify(respuesta)
 
-
 @app.route("/resultados/<string:id>", methods=['DELETE'])
 def EliminarResultado(id):
     respuesta = miControladorResultados.eliminar(id)
     return jsonify(respuesta)
-
-
 
 def loadFileConfig():
     with open('config.json') as f:
