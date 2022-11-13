@@ -8,7 +8,7 @@ class ControladorMesas():
         self.repositorioMesas = RepositorioMesas()
 
     def crear(self, infoMesa):
-        print("Crear una Mesa")
+        print("Crea una Mesa")
         mesa = Mesas(infoMesa)
         return self.repositorioMesas.save(mesa)
 
@@ -22,11 +22,11 @@ class ControladorMesas():
         return self.repositorioMesas.findAll()
 
     def actualizar(self, id, infoMesa):
-        print("Actualizando la Mesa con id: " + id)
+        print("Actualiza la Mesa con id: " + id)
         mesaActual = Mesas(self.repositorioMesas.findById(id))
         mesaActual.cantidad_inscritos = infoMesa["cantidad_inscritos"]
         return self.repositorioMesas.update(id, mesaActual)
 
     def eliminar(self, id):
-        print("Eliminando la Mesa con id: " + id)
+        print("Elimina la Mesa con id: " + id)
         return self.repositorioMesas.delete(id)

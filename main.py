@@ -139,10 +139,11 @@ def EliminarCandidato(id):
     return jsonify(respuesta)
 
 
-@app.route("/candidatos/<string:id>/partidos/<string:id_partido>", methods=['PUT'])
+# Relacion Partido y Candidato --- ya no se va a usar porque se creó la referencia manualmente
+"""@app.route("/candidatos/<string:id>/partidos/<string:id_partido>", methods=['PUT'])
 def asignaPartido(id, id_partido):
     respuesta = miControladorCandidatos.asignaPartido(id, id_partido)
-    return jsonify(respuesta)
+    return jsonify(respuesta)"""
 
 
 # Aquí los Resultados
@@ -182,7 +183,7 @@ def EliminarResultado(id):
     return jsonify(respuesta)
 
 
-# --- Aquí los Reportes (main)
+# Aquí los Reportes
 
 @app.route("/resultados/resultadosCandidatos", methods=['GET'])
 def resultadosCandidatos():

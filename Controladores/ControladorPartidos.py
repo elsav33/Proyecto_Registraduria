@@ -11,7 +11,7 @@ class ControladorPartidos():
         # self.repositorioMesas = RepositorioMesas()
 
     def crear(self, infoPartido):
-        print("Crear un partido")
+        print("Crea un partido")
         partido = Partidos(infoPartido)
         return self.repositorioPartidos.save(partido)
 
@@ -25,12 +25,12 @@ class ControladorPartidos():
         return self.repositorioPartidos.findAll()
 
     def actualizar(self, id, infoPartido):
-        print("Actualizando el partido con id: " + id)
+        print("Actualiza el partido con id: " + id)
         partidoActual = Partidos(self.repositorioPartidos.findById(id))
         partidoActual.nombre = infoPartido["nombre"]
         partidoActual.lema = infoPartido["lema"]
         return self.repositorioPartidos.update(id, partidoActual)
 
     def eliminar(self, id):
-        print("Eliminando el partido con id: " + id)
+        print("Elimina el partido con id: " + id)
         return self.repositorioPartidos.delete(id)

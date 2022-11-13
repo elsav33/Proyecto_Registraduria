@@ -34,7 +34,7 @@ class ControladorResultados:
         return elResultado.__dict__
 
     def consultarResultados(self):
-        print("Consulta todas los resultados")
+        print("Consulta todos los resultados")
         return self.repositorioResultados.findAll()
 
     def actualizar(self, id, infoResultado, id_candidato, id_mesa, id_partido):
@@ -53,14 +53,14 @@ class ControladorResultados:
         print("Elimina resultado con id: " + id)
         return self.repositorioResultados.delete(id)
 
-    # --- Controlador Resultados Reportes
+    # Reportes
 
     def ReporteCandidatos(self):
         print("Consulta votación por candidatos")
         return self.repositorioResultados.getReporteCandidatos()
 
     def ReporteCandidatosMesa(self, id_mesa):
-        print("Consulta votación por candidato para mesa: " + id_mesa)
+        print("Consulta votación por candidatos para mesa: " + id_mesa)
         return self.repositorioResultados.getReporteCandidatosMesa(id_mesa)
 
     def ReportePartidos(self):
@@ -68,11 +68,15 @@ class ControladorResultados:
         return self.repositorioResultados.getReportePartidos()
 
     def ReportePartidosMesa(self, id_mesa):
-        print("Consulta votación por partido para mesa: " + id_mesa)
+        print("Consulta votación por partidos para mesa: " + id_mesa)
         return self.repositorioResultados.getReportePartidosMesa(id_mesa)
 
     def ReporteMesas(self):
+        print("Consulta votación en todas las mesas")
         return self.repositorioResultados.getReporteMesas()
 
     def ReporteCongreso(self):
+        print("Consulta distribución porcentual del Congreso por partido")
         return self.repositorioResultados.getReporteCongreso()
+
+

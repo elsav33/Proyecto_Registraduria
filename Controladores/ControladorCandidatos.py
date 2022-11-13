@@ -10,7 +10,7 @@ class ControladorCandidatos():
         self.repositorioPartidos = RepositorioPartidos()
 
     def crear(self, infoCandidato):
-        print("Crear un Candidato")
+        print("Crea un Candidato")
         candidato = Candidatos(infoCandidato)
         return self.repositorioCandidatos.save(candidato)
 
@@ -24,7 +24,7 @@ class ControladorCandidatos():
         return self.repositorioCandidatos.findAll()
 
     def actualizar(self, id, infoCandidato):
-        print("Actualizando el Candidato con id: " + id)
+        print("Actualiza el Candidato con id: " + id)
         candidatoActual = Candidatos(self.repositorioCandidatos.findById(id))
         if infoCandidato["cedula"] != "":
             candidatoActual.cedula = infoCandidato["cedula"]
@@ -37,10 +37,10 @@ class ControladorCandidatos():
         return self.repositorioCandidatos.update(id, candidatoActual)
 
     def eliminar(self, id):
-        print("Eliminando el candidato con id: " + id)
+        print("Elimina el candidato con id: " + id)
         return self.repositorioCandidatos.delete(id)
 
-    # Relacion Partido y Candidato --- ya no se necesita porque se tuvo que crear la referencia manualmente
+    # Relacion Partido y Candidato --- ya no se va a usar porque se creó la referencia manualmente
     """def asignaPartido(self, id, id_partido):
         candidato = Candidatos(self.repositorioCandidatos.findById(id))
         partidoActual = Partidos(self.repositorioPartidos.findById(id_partido))

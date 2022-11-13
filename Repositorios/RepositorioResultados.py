@@ -138,20 +138,30 @@ class RepositorioResultados(InterfaceRepositorio[Resultados]):
             }
         }
         query3 = {
-            "$limit": 4
+            "$limit": 15
         }
         query4 = {
             "$group": {
-                "_id": "$doc.partido",
-                "Cantidad_Congresistas": {
-                    "$count": {}
+                "_id": {
+                    "partido": "$doc.partido"
                 },
-                "doc": {
-                    "$first": "$doc.partido"
-                }
+                "count": {
+                    "$sum": 1},
+
+            "doc": {
+                "$first": "$$ROOT"
+            }
+            }
+        }
+        query5 = {
+            "$project": {
+                "doc.doc.partido":1,
+                "count": 1,
+                "percentage": {
+                    "$multiply": [{
+                        "$divide": [100, 15]}, "$count"]
                 }
             }
-        pipeline = [query1, query2, query3, query4]
-
-
+        }
+        pipeline = [query1, query2, query3, query4, query5]
         return self.queryAggregation(pipeline)
