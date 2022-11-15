@@ -157,7 +157,7 @@ class RepositorioResultados(InterfaceRepositorio[Resultados]):
             "$project": {
                 "doc.doc.partido":1,
                 "count": 1,
-                "percentage": {
+                "porcentaje": {
                     "$multiply": [{
                         "$divide": [100, 15]}, "$count"]
                 }
